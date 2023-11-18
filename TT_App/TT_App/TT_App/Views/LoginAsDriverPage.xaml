@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:viewModel="clr-namespace:TT_App.ViewModels"
+             x:Class="TT_App.Views.LoginAsDriverPage"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <viewModel:LoginDriverViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="Black"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout  VerticalOptions="Center"
+                          Padding="10">
+
+                <Image Source="stering.jpg"
+                       HeightRequest="230"></Image>
+
+                <Frame Padding="8"
+                       FlowDirection="RightToLeft">
+
+                    <StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="email.png"
+                                   HorizontalOptions="Start"></Image>
+                            <Entry Text="{Binding TextUsername}"
+                                   Keyboard="Email"
+                                   Placeholder="ادخل اسم المستخدم"
+                                   MaxLength="40"
+                                   HorizontalOptions="FillAndExpand" />
+
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="lock.png"
+                                   HorizontalOptions="Start"></Image>
+                            <Entry Text="{Binding TextPassword}"
+                                   IsPassword="True"
+                                   Placeholder="ادخل كلمة المرور"
+                                   MaxLength="20"
+                                   Opacity="1"
+                                   HorizontalOptions="FillAndExpand" />
+
+                        </StackLayout>
+
+                        <Label Text="{Binding TextNotValid}"
+                               IsVisible="{Binding ShowTextIsNotValid}"
+                               FontSize="13"
+                               TextColor="IndianRed"
+                               FlowDirection="RightToLeft"></Label>
+
+                        <Button Text="تسجيل الدخول"
+                                Command="{Binding LoginAsDriverCommand}"
+                                xct:CornerRadiusEffect.CornerRadius="60"></Button>
+                    </StackLayout>
+
+                </Frame>
+                <Label Text="* استخدم حساب الشركة الخاص بك"
+                       TextColor="Silver"
+                       HorizontalOptions="Center"></Label>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

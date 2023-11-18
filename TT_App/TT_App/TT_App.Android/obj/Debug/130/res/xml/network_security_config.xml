@@ -1,0 +1,1 @@
+<network-security-config><domain-config cleartextTrafficPermitted="true"><domain includeSubdomains="true">Enter IP address</domain><!-- Debug port --></domain-config></network-security-config>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:local="clr-namespace:TT_App.ViewModels"
+             x:Class="TT_App.Views.StartTripsDetailPage"
+             Title="TransportTracking"
+             Padding="4"
+             BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <local:StartTripViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <StackLayout  AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+                              AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout VerticalOptions="CenterAndExpand" />
+
+                    <Image Source="routeTit.png"
+                           Aspect="AspectFit"
+                           HeightRequest="150"></Image>
+                    <Frame VerticalOptions="Center"
+                           HorizontalOptions="FillAndExpand"
+                           xct:ShadowEffect.Radius="2"
+                           xct:ShadowEffect.Color="CornflowerBlue"
+                           xct:ShadowEffect.OffsetX="12"
+                           xct:ShadowEffect.OffsetY="12"
+                           BorderColor="White">
+
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="CenterAndExpand">
+                                <Image Source="route.png"
+                                       HeightRequest="20"
+                                       Aspect="AspectFit"></Image>
+                                <Label Text="إختر مسار الرحلة وانطلق"
+                                       TextColor="LightSeaGreen"
+                                       HorizontalTextAlignment="Center" />
+
+                            </StackLayout>
+
+                            <Frame BorderColor="Green"
+                                   Padding="1"
+                                   BackgroundColor="White">
+                                <Picker ItemsSource="{Binding Lines}"
+                                        SelectedItem="{Binding SelectedLine}"
+                                        ItemDisplayBinding="{Binding LineName}"
+                                        Title="اختر_خط_الرحلة"
+                                        HorizontalTextAlignment="Center"
+                                        Visual="Default"
+                                        TitleColor="Green"
+                                        TextColor="Red">
+
+                                </Picker>
+
+                            </Frame>
+
+                            <Button Text="بدء الرحلة "
+                                    Command="{Binding StartTripCommand}" />
+
+                        </StackLayout>
+                    </Frame>
+
+                    <StackLayout Orientation="Horizontal"
+                                 VerticalOptions="EndAndExpand"
+                                 HorizontalOptions="CenterAndExpand"
+                                 Padding="13">
+                        <StackLayout Orientation="Horizontal">
+
+                            <Switch IsToggled="{Binding IsActive}"
+                                    OnColor="Orange"
+                                    ThumbColor="Green"
+                                    Scale="1.2"
+                                    WidthRequest="70"></Switch>
+
+                        </StackLayout>
+
+                        <Label Text=" هل انت نشط حالياً ؟"
+                               TextColor="Black"></Label>
+
+                    </StackLayout>
+                </StackLayout>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

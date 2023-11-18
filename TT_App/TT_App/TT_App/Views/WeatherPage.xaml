@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TT_App.Views.WeatherPage"
+             xmlns:viewModel="clr-namespace:TT_App.ViewModels"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+    <ContentPage.BindingContext>
+        <viewModel:WeatherViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="Black"></Setter>
+                <Setter Property="FontSize"
+                        Value="Medium"></Setter>
+
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Frame BorderColor="Green">
+                <StackLayout>
+                    <Label Text="Enter lat: "></Label>
+                    <Entry Text="{Binding Lat}"
+                           FontSize="Large"></Entry>
+
+                    <Label  Text="Enter lon: "></Label>
+                    <Entry Text="{Binding Lon}"
+                           FontSize="Large"></Entry>
+
+                    <Button Text="Get Weather"
+                            BackgroundColor="Orange"
+                            TextColor="White"
+                            Command="{Binding GetWeatherCommand}"
+                            FontSize="Medium"
+                            FontAttributes="Bold"></Button>
+
+                    <Label Text="{Binding Note}"
+                           TextColor="Red"
+                           FontSize="Small"></Label>
+                </StackLayout>
+            </Frame>
+            <Frame BorderColor="Green"
+                   IsVisible="{Binding Flag}">
+                <StackLayout>
+
+                    <Label Text="{Binding CityName}"
+                           TextColor="Green"
+                           FontSize="35"
+                           HorizontalTextAlignment="Center"></Label>
+
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="4">
+                        <Label Text="Temperature : "></Label>
+                        <Label Text="{Binding Temp}"
+                               TextColor="Green"></Label>
+
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

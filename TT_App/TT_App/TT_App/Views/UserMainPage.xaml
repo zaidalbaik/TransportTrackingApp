@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TT_App.Views.UserMainPage"
+             BackgroundColor="White"
+             xmlns:local="clr-namespace:TT_App.ViewModels"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Title="Transportation Tracking">
+
+    <ContentPage.BindingContext>
+        <local:NavUserViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="Black"></Setter>
+            </Style>
+            <Style TargetType="Frame"
+                   x:Key="frameStyle">
+                <Setter Property="BorderColor"
+                        Value="Black"></Setter>
+                <Setter Property="CornerRadius"
+                        Value="150"></Setter>
+                <Setter Property="HeightRequest"
+                        Value="100"></Setter>
+                <Setter Property="WidthRequest"
+                        Value="100"></Setter>
+                <Setter Property="Padding"
+                        Value="6"></Setter>
+                <Setter Property="HasShadow"
+                        Value="True"></Setter>
+                <Setter Property="HorizontalOptions"
+                        Value="Center"></Setter>
+                <Setter Property="xct:ShadowEffect.Color"
+                        Value="Black"></Setter>
+                <Setter Property="xct:ShadowEffect.OffsetX"
+                        Value="0"></Setter>
+                <Setter Property="xct:ShadowEffect.OffsetY"
+                        Value="0"></Setter>
+
+            </Style>
+            <Style TargetType="Image"
+                   x:Key="imagestyle">
+                <Setter Property="Aspect"
+                        Value="AspectFit"></Setter>
+                <Setter Property="BackgroundColor"
+                        Value="White"></Setter>
+                <Setter Property="HorizontalOptions"
+                        Value="Center"></Setter>
+                <Setter Property="xct:CornerRadiusEffect.CornerRadius"
+                        Value="150"></Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <StackLayout AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+                             AbsoluteLayout.LayoutFlags="All"
+                             Padding="0"
+                             HorizontalOptions="Fill">
+                    <Image Source="TransportationTracking.jpg"
+                           Aspect="AspectFit"
+                           HeightRequest="150"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Margin="0,4,0,0"></Image>
+                    <StackLayout Orientation="Vertical"
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="CenterAndExpand"
+                                 Padding="19">
+
+                        <Grid RowDefinitions="*,*"
+                              ColumnDefinitions="*,*,*">
+
+                            <StackLayout Orientation="Vertical"
+                                         HorizontalOptions="Fill"
+                                         Grid.Column="0"
+                                         Grid.Row="0">
+                                <Frame Style="{StaticResource frameStyle}">
+                                    <Image Source="routeIconu.png"
+                                           Style="{StaticResource imagestyle}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                                  CommandParameter="Lines" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Frame>
+                                <Label Text="تتبع المسارات"
+                                       HorizontalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding GoToPagesCommand}"
+                                                               CommandParameter="Lines" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Vertical"
+                                         HorizontalOptions="Fill"
+                                         Grid.Column="1"
+                                         Grid.Row="0">
+                                <Frame Style="{StaticResource frameStyle}">
+                                    <Image Source="LocationOn.png"
+                                           Style="{StaticResource imagestyle}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                                  CommandParameter="Stations" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Frame>
+                                <Label Text="المحطات القريبة"
+                                       HorizontalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding GoToPagesCommand}"
+                                                               CommandParameter="Stations" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Vertical"
+                                         HorizontalOptions="Fill"
+                                         Grid.Column="2"
+                                         Grid.Row="0">
+                                <Frame Style="{StaticResource frameStyle}">
+                                    <Image Source="Train_Station.jpg"
+                                           Style="{StaticResource imagestyle}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                                  CommandParameter="StartTripForUser" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Frame>
+                                <Label Text="بدء رحلة"
+                                       HorizontalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding GoToPagesCommand}"
+                                                               CommandParameter="StartTripForUser" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Vertical"
+                                         HorizontalOptions="Fill"
+                                         Grid.Column="0"
+                                         Grid.Row="1">
+                                <Frame Style="{StaticResource frameStyle}">
+                                    <Image Source="forum.png"
+                                           Style="{StaticResource imagestyle}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                                  CommandParameter="UsersGuide" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Frame>
+                                <Label Text="دليل المستخدم"
+                                       HorizontalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding GoToPagesCommand}"
+                                                               CommandParameter="UsersGuide" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Vertical"
+                                         HorizontalOptions="Fill"
+                                         Grid.Column="1"
+                                         Grid.Row="1">
+                                <Frame Style="{StaticResource frameStyle}">
+                                    <Image Source="notifications.png"
+                                           Style="{StaticResource imagestyle}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                                  CommandParameter="Notifications" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Frame>
+                                <Label Text="الإشعارات"
+                                       HorizontalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding GoToPagesCommand}"
+                                                               CommandParameter="Notifications" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Vertical"
+                                         HorizontalOptions="Fill"
+                                         Grid.Column="2"
+                                         Grid.Row="1">
+                                <Frame Style="{StaticResource frameStyle}">
+                                    <Image Source="PersonProfile.png"
+                                           Style="{StaticResource imagestyle}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                                  CommandParameter="Profile" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Frame>
+                                <Label Text="الملف الشخصي"
+                                       HorizontalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding GoToPagesCommand}"
+                                                               CommandParameter="Profile" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                    <Image Source="personsta.png"
+                           Aspect="AspectFit"
+                           HeightRequest="36"
+                           VerticalOptions="End" />
+                    <Image  Source="rr3.jpg"
+                            Aspect="AspectFit"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="End" />
+                </StackLayout>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

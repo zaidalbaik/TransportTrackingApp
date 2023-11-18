@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:local="clr-namespace:TT_App.ViewModels"
+             x:Class="TT_App.Views.LinesListPage">
+
+    <ContentPage.BindingContext>
+        <local:LinesListViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="Black"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Padding="0"
+                   HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="10"
+                             Orientation="Horizontal"
+                             FlowDirection="RightToLeft">
+                    <Frame BorderColor="Silver"
+                           Padding="18"
+                           HasShadow="True"
+                           HeightRequest="18"
+                           WidthRequest="30">
+                        <Image Source="Search.png"
+                               Aspect="AspectFit">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SearchLineCommand}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Frame>
+                    <Entry Text="{Binding TextSearch}"
+                           Keyboard="Text"
+                           Placeholder="ابحث عن مسار "
+                           xct:IconTintColorEffect.TintColor="Green"
+                           HorizontalOptions="FillAndExpand"></Entry>
+
+                </StackLayout>
+
+            </Frame>
+            <ScrollView>
+                <StackLayout FlowDirection="RightToLeft">
+                    <ListView ItemsSource="{Binding Lines}"
+                              SelectedItem="{Binding SelectedLine}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+
+                                <ViewCell>
+                                    <StackLayout Padding="4"
+                                                 Orientation="Horizontal">
+                                        <Image Source="route.png"
+                                               Aspect="AspectFit"
+                                               HeightRequest="20"></Image>
+
+                                        <Label Text="{Binding LineName}"
+                                               VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                </ViewCell>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

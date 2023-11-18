@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:viewModel="clr-namespace:TT_App.ViewModels"
+             x:Class="TT_App.Views.FirstPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+    <ContentPage.BindingContext>
+        <viewModel:FirstViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+
+                <Setter Property="FontSize"
+                        Value="20"></Setter>
+                <Setter Property="FontAttributes"
+                        Value="Bold"></Setter>
+
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="25"
+                         VerticalOptions="CenterAndExpand"
+                         Spacing="20">
+
+                <StackLayout Orientation="Horizontal"
+                             WidthRequest="{Binding FlexWidth}">
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="CenterAndExpand">
+                        <Image Source="location.jfif"
+                               HeightRequest="40"></Image>
+                        <Label Text="تَتبَع مواقع الحافلات القريبة مِنْك"
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               FontSize="17"
+                               VerticalTextAlignment="Center"></Label>
+                    </StackLayout>
+
+                </StackLayout>
+
+                <Image Source="TransportationTracking.jpg"
+                       HeightRequest="200"></Image>
+                <Frame BorderColor="Black"
+                       Padding="2"
+                       CornerRadius="60"
+                       BackgroundColor="CadetBlue">
+                    <Button Text="تسجيل الدخول ك مُتَتبع "
+                            Command="{Binding GotoPageCommand}"
+                            CommandParameter="LoginPage"
+                            xct:ShadowEffect.Color="Gray"
+                            xct:ShadowEffect.OffsetY="20"
+                            xct:ShadowEffect.OffsetX="20"
+                            xct:ShadowEffect.Radius="10"
+                            xct:CornerRadiusEffect.CornerRadius="60" />
+                </Frame>
+
+                <Frame BorderColor="Black"
+                       Padding="2"
+                       CornerRadius="60"
+                       BackgroundColor="CadetBlue">
+                    <Button Text="تسجيل الدخول ك سائق"
+                            Command="{Binding GotoPageCommand}"
+                            CommandParameter="LoginAsDriverPage"
+                            xct:ShadowEffect.Color="Gray"
+                            xct:ShadowEffect.OffsetY="20"
+                            xct:ShadowEffect.OffsetX="20"
+                            xct:ShadowEffect.Radius="10"
+                            xct:CornerRadiusEffect.CornerRadius="60" />
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TT_App.Views.UsersGuidePage"
+             xmlns:viewModel="clr-namespace:TT_App.ViewModels"
+             Title="دليل المستخدم">
+
+    <ContentPage.Content>
+        <StackLayout FlowDirection="RightToLeft">
+
+            <StackLayout HorizontalOptions="Center"
+                         Padding="10">
+                <Label Text="تتبع المسارات "
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+                <Label HorizontalOptions="Center"
+                       Text=" لتتبٌع حركة الحافلات على خط معين قم بالنقر على خانة تتبع المسارات ثم اختر خط رحلتك سوف تجد مواقع الحافلات التي تسري على هذا الخط وستُلاحظ تحرك الحافلات بشكل حي ومباشر " />
+
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="Center"
+                         Padding="10">
+                <Label Text="المحطات القريبة "
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+                <Label HorizontalOptions="Center"
+                       TextType="Text"
+                       Text="قم بالنقر على (المحطات القريبة) سيتم فلترة اقرب المحطات القريبة من موقِعَك وعند النقر على محطة معينة سوف ترى موقعها على الخريطة ومع تديث حالة موقعك وبالتالي سهولة الوصول اليها  " />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TT_App.Views.UsersPage"
+             xmlns:local="clr-namespace:TT_App"
+             xmlns:viewModel="clr-namespace:TT_App.ViewModels"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+
+    <ContentPage.BindingContext>
+        <viewModel:UsersListViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="Black"></Setter>
+                <Setter Property="FontSize"
+                        Value="Small"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BorderColor="Green"
+                   Padding="0">
+                <StackLayout Padding="10"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Center">
+                    <Entry Text="{Binding TextSearch}"
+                           Placeholder="ابحث عن اسم المستخدم"
+                           xct:IconTintColorEffect.TintColor="Green"></Entry>
+                    <Button  Text="بحث"
+                             TextColor="Green"
+                             BackgroundColor="White"
+                             xct:ShadowEffect.Color="Green"></Button>
+                </StackLayout>
+
+            </Frame>
+
+            <ScrollView>
+                <StackLayout>
+
+                    <ListView ItemsSource="{Binding Users}"
+                              RowHeight="140"
+                              ItemTapped="ListView_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+
+                                <ViewCell>
+                                    <StackLayout Padding="4">
+                                        <Frame BorderColor="Black"
+                                               HorizontalOptions="FillAndExpand"
+                                               VerticalOptions="FillAndExpand"
+                                               Padding="4">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label Grid.Row="0"
+                                                       Grid.Column="0"
+                                                       Text="ID: " />
+                                                <Label Grid.Row="0"
+                                                       Grid.Column="1"
+                                                       Text="{Binding userID}" />
+                                                <Label Grid.Row="1"
+                                                       Grid.Column="0"
+                                                       Text="Email: " />
+                                                <Label Grid.Row="1"
+                                                       Grid.Column="1"
+                                                       Text="{Binding email}" />
+                                                <Label Grid.Row="2"
+                                                       Grid.Column="0"
+                                                       Text="Full Name: " />
+
+                                                <StackLayout Grid.Row="2"
+                                                             Grid.Column="1"
+                                                             Orientation="Horizontal">
+                                                    <Label Text="{Binding firstName}" />
+                                                    <Label Text="{Binding lastName}" />
+                                                </StackLayout>
+
+                                            </Grid>
+                                        </Frame>
+
+                                    </StackLayout>
+                                </ViewCell>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

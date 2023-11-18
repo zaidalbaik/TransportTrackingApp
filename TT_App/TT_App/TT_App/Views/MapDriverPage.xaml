@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TT_App.ViewModels"
+             x:Class="TT_App.Views.MapDriverPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <local:MapDriverViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="0"
+                     Spacing="0">
+            <ContentView Content="{Binding MapDriver}"
+                         HeightRequest="{Binding FullSecreen}"
+                         VerticalOptions="FillAndExpand" />
+
+            <Button Text="إنهاء الرحلة"
+                    Command="{Binding FinishTheTripCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

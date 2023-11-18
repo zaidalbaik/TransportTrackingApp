@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TT_App.Views.SettingDriverPage"
+             xmlns:viewModel="clr-namespace:TT_App.ViewModels">
+
+    <ContentPage.BindingContext>
+        <viewModel:StartTripViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="4">
+            <Frame Padding="1"
+                   BorderColor="Green">
+                <StackLayout Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="language.png"
+                               HeightRequest="26"
+                               HorizontalOptions="Center"></Image>
+                        <Label Text="إختر اللُغة"
+                               HorizontalOptions="Center" />
+                    </StackLayout>
+
+                    <Picker Title="اللغة"
+                            HorizontalTextAlignment="Center"
+                            TextColor="black">
+                        <Picker.Items>
+                            <x:String>عربي</x:String>
+                            <x:String>English</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                </StackLayout>
+            </Frame>
+
+            <StackLayout Orientation="Horizontal"
+                         Padding="10 ">
+                <Image Source="logout.png"
+                       VerticalOptions="Center"
+                       HeightRequest="26"></Image>
+                <Label Text="تسجيل الخروج"
+                       VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LogOutDriverCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LogOutDriverCommand}" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

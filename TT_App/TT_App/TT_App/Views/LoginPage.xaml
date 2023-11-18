@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:viewModel="clr-namespace:TT_App.ViewModels"
+             x:Class="TT_App.Views.LoginPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <viewModel:LoginViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="Black"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <StackLayout AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+                             AbsoluteLayout.LayoutFlags="All"
+                             VerticalOptions="CenterAndExpand"
+                             Padding="6"
+                             Spacing="60">
+                    <Image Source="TransportationTracking.jpg"
+                           HeightRequest="150"
+                           Aspect="AspectFit"></Image>
+
+                    <Frame BackgroundColor="White"
+                           CornerRadius="10"
+                           Padding="0"
+                           BorderColor="White"
+                           xct:ShadowEffect.Color="Black"
+                           xct:ShadowEffect.OffsetY="0"
+                           xct:ShadowEffect.OffsetX="-2"
+                           xct:ShadowEffect.Radius="5"
+                           FlowDirection="RightToLeft">
+                        <AbsoluteLayout Padding="6">
+                            <StackLayout AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+                                         AbsoluteLayout.LayoutFlags="All"
+                                         Spacing="10">
+                                <Frame Padding="6"
+                                       HeightRequest="{Binding HeightFrameLogin}"
+                                       HorizontalOptions="FillAndExpand"
+                                       CornerRadius="10"
+                                       xct:ShadowEffect.OffsetY="8"
+                                       xct:ShadowEffect.Radius="8"
+                                       xct:ShadowEffect.Color="Gray"
+                                       BorderColor="White">
+                                    <StackLayout Spacing="10">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Source="email.png"
+                                                   HorizontalOptions="Start"></Image>
+                                            <Entry Text="{Binding TextUsername}"
+                                                   Keyboard="Email"
+                                                   Placeholder="ادخل اسم المستخدم"
+                                                   MaxLength="40"
+                                                   FontSize="Small"
+                                                   FlowDirection="RightToLeft"
+                                                   HorizontalOptions="FillAndExpand" />
+
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Source="lock.png"
+                                                   HorizontalOptions="Start"></Image>
+                                            <Entry Text="{Binding TextPassword}"
+                                                   Placeholder="ادخل كلمة المرور"
+                                                   MaxLength="20"
+                                                   FontSize="Small"
+                                                   FlowDirection="RightToLeft"
+                                                   HorizontalOptions="FillAndExpand" />
+
+                                        </StackLayout>
+
+                                        <Label Text="{Binding TextNotValid}"
+                                               IsVisible="{Binding ShowTextIsNotValid}"
+                                               FontSize="13"
+                                               TextColor="IndianRed"
+                                               FlowDirection="RightToLeft"></Label>
+                                    </StackLayout>
+
+                                </Frame>
+
+                                <Label Text="هل نسيت كلمة المرور؟"
+                                       TextColor="Gray"
+                                       VerticalOptions="Center"
+                                       TextDecorations="Underline">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                                <Button Text="تسجيل الدخول"
+                                        FontAttributes="Bold"
+                                        Command="{Binding LoginCommand}"
+                                        xct:CornerRadiusEffect.CornerRadius="60"
+                                        TextColor="White"></Button>
+
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="Center">
+
+                                    <Label Text="ليس لديك حساب؟" />
+                                    <Label Text="قم بإنشاء حساب"
+                                           TextColor="CornflowerBlue"
+                                           HorizontalOptions="End"
+                                           TextDecorations="Underline">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding GoToSignUpCommand}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                </StackLayout>
+
+                            </StackLayout>
+                        </AbsoluteLayout>
+
+                    </Frame>
+
+                    <Button Text=" G+ المتابعة من حساب جوجل "
+                            BackgroundColor="Red"
+                            TextColor="White"
+                            CornerRadius="60" />
+                </StackLayout>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

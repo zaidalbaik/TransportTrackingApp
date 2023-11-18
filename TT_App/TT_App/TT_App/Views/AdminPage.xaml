@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TT_App.Views.AdminPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:viewModel="clr-namespace:TT_App.ViewModels"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <viewModel:AdminViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="FontSize"
+                        Value="17"></Setter>
+                <Setter Property="TextColor"
+                        Value="Green"></Setter>
+                <Setter Property="BackgroundColor"
+                        Value="White"></Setter>
+                <Setter Property="xct:CornerRadiusEffect.CornerRadius"
+                        Value="5"></Setter>
+
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Padding="10"
+                     VerticalOptions="Center"
+                     Spacing="15">
+
+            <Frame BorderColor="Green"
+                   Padding="2">
+                <Button Text="المستخدمين"
+                        Command="{Binding NavCommand}"
+                        CommandParameter="Users"></Button>
+            </Frame>
+
+            <Frame BorderColor="Green"
+                   Padding="2">
+                <Button Text="السائقين"
+                        Command="{Binding NavCommand}"
+                        CommandParameter="Drivers"></Button>
+            </Frame>
+
+            <Frame BorderColor="Green"
+                   Padding="2">
+                <Button Text="الحافلات"
+                        Command="{Binding NavCommand}"
+                        CommandParameter="Buses"></Button>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

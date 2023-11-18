@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TT_App.ViewModels"
+             x:Class="TT_App.Views.ProfilePage">
+
+    <ContentPage.BindingContext>
+        <local:ProfileViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <!--<Setter Property="HorizontalOptions"
+                        Value="Center"></Setter>-->
+                <Setter Property="TextColor"
+                        Value="Black"></Setter>
+
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Image Source="profile.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ChangeProfileImage}" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="Your Profile"
+                   FontSize="Large"
+                   HorizontalOptions="Center"></Label>
+            <StackLayout Padding="8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+
+                    </Grid.RowDefinitions>
+                    <Label Text="Name :"
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           FontSize="Medium" />
+                    <Label Text="Email :"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           FontSize="Medium" />
+                    <Label Text="User ID :"
+                           Grid.Column="0"
+                           Grid.Row="2"
+                           FontSize="Medium" />
+
+                    <Label Text="{Binding UserName}"
+                           Grid.Column="1"
+                           Grid.Row="0"
+                           FontSize="Medium" />
+                    <Label Text="{Binding Email}"
+                           Grid.Column="1"
+                           Grid.Row="1"
+                           FontSize="Medium" />
+                    <Label Text="{Binding UserID}"
+                           Grid.Column="1"
+                           Grid.Row="2"
+                           FontSize="Medium" />
+
+                </Grid>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

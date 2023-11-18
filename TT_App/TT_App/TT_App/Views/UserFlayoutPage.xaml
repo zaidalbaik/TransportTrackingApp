@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:TT_App.ViewModels"
+            xmlns:pages="clr-namespace:TT_App.Views"
+            x:Class="TT_App.Views.UserFlayoutPage"
+            NavigationPage.HasNavigationBar="False"
+            FlyoutLayoutBehavior="Split">
+
+    <FlyoutPage.BindingContext>
+        <local:NavUserViewModel />
+    </FlyoutPage.BindingContext>
+    <FlyoutPage.Flyout>
+        <ContentPage   NavigationPage.HasNavigationBar="False"
+                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                       Title="Flayout">
+
+            <ContentPage.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="Label">
+                        <Setter Property="TextColor"
+                                Value="Black"></Setter>
+                        <Setter Property="VerticalOptions"
+                                Value="Center"></Setter>
+                        <Setter Property="HorizontalTextAlignment"
+                                Value="Start"></Setter>
+                    </Style>
+                    <Style TargetType="Image">
+                        <Setter Property="HorizontalOptions"
+                                Value="Start"></Setter>
+                        <Setter Property="Margin"
+                                Value="0,0,10,0"></Setter>
+                    </Style>
+                </ResourceDictionary>
+            </ContentPage.Resources>
+
+            <ContentPage.Content>
+                <StackLayout>
+
+                    <StackLayout BackgroundColor="Green"
+                                 Padding="16">
+                        <Image Source="profile.png"
+                               HeightRequest="50"
+                               HorizontalOptions="Start">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                      CommandParameter="Profile" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label Text="{Binding PersonName}"
+                               TextColor="White"></Label>
+                        <Label Text="{Binding Email}"
+                               TextColor="White"></Label>
+
+                    </StackLayout>
+
+                    <StackLayout Padding="16"
+                                 Spacing="18">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="Train_Station.jpg"
+                                   HeightRequest="26"></Image>
+                            <Label Text="بدء رحلة">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                          CommandParameter="UserStartTrip" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding GoToPagesCommand}"
+                                                       CommandParameter="UserStartTrip" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="lines.png"
+                                   HeightRequest="26"></Image>
+                            <Label Text=" تتبع المسارات">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                          CommandParameter="Lines" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                      CommandParameter="Lines" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="locationIcon.png"
+                                   HeightRequest="26"></Image>
+                            <Label Text="المحطات القريبة">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                          CommandParameter="Stations" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding GoToPagesCommand}"
+                                                       CommandParameter="Stations" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="forum.png"
+                                   HeightRequest="26"></Image>
+                            <Label Text="دليل المستخدم ">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                          CommandParameter="UsersGuide" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                      CommandParameter="About" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="AboutIcon.png"
+                                   HeightRequest="26"></Image>
+                            <Label Text="عن التطبيق">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                          CommandParameter="About" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                      CommandParameter="About" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="settings.jpg"
+                                   HeightRequest="26"></Image>
+                            <Label Text="الإعدادات">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                          CommandParameter="Settings" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToPagesCommand}"
+                                                      CommandParameter="Settings" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </StackLayout>
+
+            </ContentPage.Content>
+        </ContentPage>
+
+    </FlyoutPage.Flyout>
+
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <!--my map-->
+                <pages:UserMainPage />
+
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+
+</FlyoutPage>

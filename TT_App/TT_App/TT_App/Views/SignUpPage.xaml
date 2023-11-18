@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:TT_App.ViewModels"
+             x:Class="TT_App.Views.SignUpPage"
+             BackgroundColor="White"
+             FlowDirection="RightToLeft">
+    <ContentPage.BindingContext>
+        <viewModel:SignUpViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="Black"></Setter>
+                <Setter Property="FontAttributes"
+                        Value="Bold"></Setter>
+                <Setter Property="FontSize"
+                        Value="Subtitle"></Setter>
+
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="30"
+                         Spacing="10">
+
+                <Image Source="TransportationTracking.jpg"
+                       HeightRequest="200"></Image>
+
+                <Label  HorizontalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="مستخدم"
+                                  TextColor="Black"
+                                  FontAttributes="Bold"
+                                  FontSize="30"
+                                  FontFamily="NotoKufiArabic-Regular.ttf#NotoKufiArabic-Regular" />
+                            <Span Text=" "
+                                  FontSize="30" />
+                            <Span Text="جديد"
+                                  FontAttributes="Bold"
+                                  TextColor="Green"
+                                  FontSize="30"
+                                  FontFamily="NotoKufiArabic-Regular.ttf#NotoKufiArabic-Regular" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="الإسم الاول"></Label>
+                <Entry Keyboard="Text"
+                       Placeholder="ادخل الاسم الاول"
+                       Text="{Binding FirstName}" />
+
+                <Label Text="الإسم الاخير"></Label>
+                <Entry Keyboard="Text"
+                       Placeholder="ادخل الاسم الاخير"
+                       Text="{Binding LastName}" />
+
+                <Label Text="البريد الالكتروني" />
+                <Entry Keyboard="Email"
+                       Placeholder="أدخل بريدك الإلكتروني"
+                       ClearButtonVisibility="WhileEditing"
+                       Text="{Binding Email}" />
+
+                <Label Text="كلمة المرور"></Label>
+                <Entry x:Name="txtPassword"
+                       MaxLength="20"
+                       Placeholder="ادخل كلمة مرور معقدة"
+                       Text="{Binding Password}"></Entry>
+
+                <Label Text="تأكيد كلمة المرور"></Label>
+                <Entry MaxLength="20"
+                       Placeholder="اعد ادخال كلمة المرور"
+                       Text="{Binding ConfirmPassword}"></Entry>
+
+                <Label Text="{Binding TextNotValid}"
+                       IsVisible="{Binding ShowTextIsNotValid}"
+                       TextColor="Red"></Label>
+                <Frame Padding="1"
+                       BorderColor="Green"
+                       HasShadow="True"
+                       CornerRadius="60">
+                    <Button Text="إنشاء حساب"
+                            Command="{Binding CreateAccountCommand}"
+                            CornerRadius="60"/>
+                </Frame>
+
+                <!--<Button Text="Update User" BackgroundColor="Green" TextColor="White"
+                    Command="{Binding UpdateAccountCommand}"/>-->
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+
+</ContentPage>

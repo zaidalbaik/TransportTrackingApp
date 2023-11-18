@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+            xmlns:local="clr-namespace:TT_App.ViewModels"
+            xmlns:pages="clr-namespace:TT_App.Views"
+            x:Class="TT_App.Views.StartTripsPage"
+            NavigationPage.HasNavigationBar="False"
+            FlyoutLayoutBehavior="Split">
+    <FlyoutPage.BindingContext>
+        <local:StartTripViewModel />
+    </FlyoutPage.BindingContext>
+
+    <FlyoutPage.Flyout>
+        <ContentPage Title="FlayoutDriver"
+                     NavigationPage.HasNavigationBar="False">
+
+            <ContentPage.Content>
+                <StackLayout>
+                    <StackLayout BackgroundColor="Green"
+                                 Padding="16">
+                        <Image Source="profile.png"
+                               HeightRequest="50"
+                               HorizontalOptions="Start"
+                               xct:TouchEffect.PressedOpacity="0.3">
+                            <!--<Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapCommand}"
+                                                      CommandParameter="MyImage" />
+                            </Image.GestureRecognizers>-->
+                        </Image>
+                        <Label Text="{Binding DriverName}"
+                               TextColor="White"></Label>
+                        <Label Text="{Binding DriverEmail}"
+                               TextColor="White"></Label>
+                        <Label Text="{Binding DriverId}"
+                               TextColor="White"></Label>
+                        <Label Text="{Binding BusId}"
+                               TextColor="White"></Label>
+
+                    </StackLayout>
+
+                    <StackLayout Padding="16">
+                        
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="AboutIcon.png"
+                                   HeightRequest="26"></Image>
+                            <Label Text="عن التطبيق"
+                                   xct:TouchEffect.PressedOpacity="0.3"></Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToPagesFromDriverCommand}"
+                                                      CommandParameter="About" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="settings.jpg"
+                                   HeightRequest="26"></Image>
+                            <Label Text="الاعدادات"
+                                   xct:TouchEffect.PressedOpacity="0.3"></Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToPagesFromDriverCommand}"
+                                                      CommandParameter="Settings" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </StackLayout>
+            </ContentPage.Content>
+
+        </ContentPage>
+    </FlyoutPage.Flyout>
+
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <pages:StartTripsDetailPage />
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+
+</FlyoutPage>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:TT_App.ViewModels"
+             x:Class="TT_App.Views.StationsPage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:StationViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label   HorizontalTextAlignment="Center" TextColor="Black" Text="المحطات"></Label>
+                </StackLayout>
+                <ListView ItemsSource="{Binding Stations}"
+                          FlowDirection="RightToLeft"
+                          SelectedItem="{Binding SelectedStation}"
+                          RefreshControlColor="White"
+                          SeparatorColor="White">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <ViewCell>
+                                <StackLayout Padding="4"
+                                             Orientation="Horizontal">
+                                    <Image Source="locationIcon.png"
+                                           Aspect="AspectFit"
+                                           HeightRequest="20"></Image>
+                                    <Label Text="{Binding StationName}"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="FillAndExpand"
+                                           TextColor="Black"></Label>
+                                </StackLayout>
+                            </ViewCell>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

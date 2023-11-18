@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TT_App.App">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily"
+                        Value="NotoKufiArabic-Regular.ttf#NotoKufiArabic-Regular"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily"
+                        Value="NotoKufiArabic-Bold.ttf#NotoKufiArabic-Bold"></Setter>
+                <Setter Property="BackgroundColor"
+                        Value="Green"></Setter>
+                <Setter Property="TextColor"
+                        Value="White"></Setter>
+            </Style>
+            <Style TargetType="Picker">
+                <Setter Property="FontFamily"
+                        Value="NotoKufiArabic-Regular.ttf#NotoKufiArabic-Regular"></Setter>
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="FontFamily"
+                        Value="NotoKufiArabic-Regular.ttf#NotoKufiArabic-Regular"></Setter>
+                <Setter Property="FlowDirection"
+                        Value="RightToLeft"></Setter>
+            </Style>
+            <Style TargetType="CheckBox">
+                <Setter Property="Color"
+                        Value="Black"></Setter>
+            </Style>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor"
+                        Value="Green" />
+                <Setter Property="BarTextColor"
+                        Value="White" />
+            </Style>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
