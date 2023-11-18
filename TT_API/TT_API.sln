@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TT_API", "TT_API\TT_API.csproj", "{6284C00F-B3DC-47B7-BB1F-770D87D8336E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6284C00F-B3DC-47B7-BB1F-770D87D8336E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6284C00F-B3DC-47B7-BB1F-770D87D8336E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6284C00F-B3DC-47B7-BB1F-770D87D8336E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6284C00F-B3DC-47B7-BB1F-770D87D8336E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32571881-3177-4E8C-BC2C-85267E3227F7}
+	EndGlobalSection
+EndGlobal
